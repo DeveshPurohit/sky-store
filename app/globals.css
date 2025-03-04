@@ -317,13 +317,13 @@
 
   /* Chart */
   .chart {
-    @apply flex items-center rounded-[20px] bg-[#0173f3] p-5 text-white md:flex-col xl:flex-row !important;
+    @apply flex items-center rounded-[20px] bg-slate-600 p-5 text-white md:flex-col xl:flex-row !important;
   }
   .chart-container {
     @apply mx-auto aspect-square w-[180px] text-white xl:w-[250px] !important;
   }
   .polar-grid {
-    @apply first:fill-white/20 last:fill-brand !important;
+    @apply first:fill-white/20 last:fill-slate-600 !important;
   }
   .chart-details {
     @apply flex-1 items-start px-3 py-0 sm:px-5 lg:p-3 xl:pr-5 !important;
