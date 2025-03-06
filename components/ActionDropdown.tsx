@@ -36,7 +36,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [name, setName] = useState(file.name);
   const [emails, setEmails] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(emails);
+
   const closeAllModals = () => {
     setIsModalOpen(false);
     setIsDropdownOpen(false);
