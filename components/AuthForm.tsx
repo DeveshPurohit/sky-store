@@ -19,6 +19,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { createUser, signInUser } from "@/lib/actions/user-action";
 import OtpDrawer from "./OtpDrawer";
+import { handleError } from "@/lib/utils";
 
 const authFormSchema = (type: FormType) =>
   z.object({
@@ -30,8 +31,8 @@ const authFormSchema = (type: FormType) =>
 type FormType = "sign-in" | "sign-up";
 
 const AuthForm = ({ type }: { type: FormType }) => {
+
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [accountId, setAccountId] = useState("");
 
   const formSchema = authFormSchema(type);
@@ -52,8 +53,10 @@ const AuthForm = ({ type }: { type: FormType }) => {
         email: values.email,
       }) : await signInUser(values.email);
       setAccountId(res.accountId);
+      if(res.error) {
+        handleError(res.error, "Failed to sign in user!")
+      }
     } catch (error) {
-      setErrorMessage("Failed to create account. Please try again.");
       console.log(error);
     } finally {
       setIsLoading(false);

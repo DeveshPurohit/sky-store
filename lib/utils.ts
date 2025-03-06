@@ -242,5 +242,6 @@ export const getFileTypesParams = (type: string) => {
 
 export const handleError = (error: unknown, message: string) => {
   console.log(error, message);
+  alert(`${error} ${message}`);
   throw error;
 };
