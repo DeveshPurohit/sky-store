@@ -32,7 +32,7 @@ const FileUploader = ({ ownerId, accountId, className }: PROPS) => {
         setFiles((prev) => prev.filter((f) => f.name !== file.name));
         return toast({
           title: `${file.name} is too large!`,
-          description: "Max file size is 50MB",
+          description: "Max file size is 4.5MB",
           className: "error-toast"
         })
       }
